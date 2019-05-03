@@ -3,10 +3,23 @@ const app  = require('../app');
 
 describe('test',function(){
 
-    it("Welcom the user",function(done){
+    it("get user",function(done){
 
-        request(app).get("/")
+        request(app).get("/getuser")
         .expect(200)
-        .expect( done())
+        .expect('success' , done)
+        
+    })
+})
+
+describe('add user',function(){
+
+    it("succesullfy add user",function(done){
+
+        request(app).post("/adduser")
+        .send({name:"dhara"})
+        .expect(200)
+        .expect('success',done)
+        
     })
 })
